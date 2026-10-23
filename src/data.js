@@ -19,9 +19,9 @@ export const office = {
 export const sermon = {
   eyebrow: '지난 주일 설교 · 10월 18일',
   title: ['광야에서', '부르는 노래'],
-  meta: '출애굽기 15:1–21 · [담임목사 이름] 목사',
+  meta: '출애굽기 15:1–21 · 박상진 목사',
   photo: '[사진: 주일 예배 중 본당 — 성도들 뒷모습]',
-  videoHref: '#',
+  videoHref: 'https://www.youtube.com/@jejaro_ch',
   scriptHref: '#',
 };
 
@@ -73,9 +73,12 @@ export const welcome = {
 };
 
 export const visit = {
-  map: '[지도 — 카카오맵/네이버지도]',
-  address: '[도로명 주소]',
+  name: '제자로교회',
+  address: '경기 화성시 병점구 영통로50번길 48 402, 403호',
+  // 지도 검색용 (호수 제외)
+  mapQuery: '경기 화성시 병점구 영통로50번길 48',
   transit: '[지하철역] [번] 출구 도보 [분]분',
-  parking: '주차: 교회 뒤편 공영주차장 (주일 무료)',
-  directionsHref: '#',
+  parking: '주차: 건물 지하 주차장',
+  // https://developers.kakao.com 에서 발급한 JavaScript 키. 비어 있으면 지도 대신 카카오맵 링크를 보여 줍니다.
+  kakaoMapKey: '',
 };

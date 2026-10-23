@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { sermon, order, times, news, photos, welcome } from '../data.js';
 import { PlayIcon } from './Icons.jsx';
+import { openYouTube } from '../openApp.js';
 
 export function Placeholder({ label, className = '' }) {
   return (
@@ -22,7 +23,13 @@ export function Sermon() {
       <p className="sermon__meta">{sermon.meta}</p>
       <Placeholder label={sermon.photo} className="ph--4x3 sermon__photo" />
       <div className="btn-grid">
-        <a href={sermon.videoHref} className="btn btn--solid">
+        <a
+          href={sermon.videoHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn--solid"
+          onClick={(e) => openYouTube(e, sermon.videoHref)}
+        >
           <PlayIcon />
           설교 영상
         </a>

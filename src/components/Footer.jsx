@@ -1,19 +1,27 @@
+import { useState } from 'react';
 import { visit, office } from '../data.js';
-import { Placeholder } from './Sections.jsx';
+import KakaoMap, { kakaoSearchUrl } from './KakaoMap.jsx';
 import { ClockIcon, VideoIcon, PinIcon, PhoneIcon } from './Icons.jsx';
 
 export function Footer() {
+  const [coords, setCoords] = useState(null);
+  const directionsHref = coords
+    ? `https://map.kakao.com/link/to/${encodeURIComponent(visit.name)},${coords.lat},${coords.lng}`
+    : kakaoSearchUrl(visit.mapQuery);
+
   return (
     <footer id="visit" className="footer">
       <div className="footer__title">오시는 길</div>
-      <Placeholder label={visit.map} className="footer__map" />
+      <KakaoMap appKey={visit.kakaoMapKey} query={visit.mapQuery} name={visit.name} onLocate={setCoords} />
       <address className="footer__addr">
         <div>{visit.address}</div>
         <div>{visit.transit}</div>
         <div>{visit.parking}</div>
       </address>
       <div className="btn-grid">
-        <a href={visit.directionsHref} className="btn btn--line btn--sm">길찾기</a>
+        <a href={directionsHref} target="_blank" rel="noopener noreferrer" className="btn btn--line btn--sm">
+          길찾기
+        </a>
         <a href={`tel:${office.tel}`} className="btn btn--line btn--sm">사무실 전화</a>
       </div>
       <div className="footer__small">{office.email} · 헌금 계좌는 사무실로 문의</div>
