@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__bar">
-        <a href="#" className="header__logo">새움교회</a>
+        <a href="#" className="header__logo">제자로교회</a>
         <button
           type="button"
           className="icon-btn"
